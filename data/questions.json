@@ -9,6 +9,21 @@
       "id": "privacy",
       "name": "Data privacy",
       "intro": "What happens to student and staff data, during the contract and after it ends?"
+    },
+    {
+      "id": "bias",
+      "name": "Bias and accessibility",
+      "intro": "Does it work fairly and fully for all of our students, including those it was least tested on?"
+    },
+    {
+      "id": "cost",
+      "name": "Cost and exit terms",
+      "intro": "What will this really cost over time, and can we leave cleanly?"
+    },
+    {
+      "id": "fit",
+      "name": "Classroom fit",
+      "intro": "Will teachers actually use it, and will it support learning rather than replace it?"
     }
   ],
   "questions": [
@@ -130,6 +145,167 @@
       "question": "What happens to our data if your company is acquired, merges, or shuts down?",
       "why_it_matters": "Edtech companies are bought and closed often. The contract should say what happens to your data when that happens.",
       "weak_answer": "Not addressed in the contract, or \"we'd handle that at the time.\""
+    },
+    {
+      "id": "BA-01",
+      "category": "bias",
+      "question": "Was the product tested with students like ours, including English learners, students with disabilities, and students from different backgrounds?",
+      "why_it_matters": "A tool tested on a narrow group of students may work worse for others, and you won't know unless you ask.",
+      "weak_answer": "\"It works for all students,\" with no results broken out by student group."
+    },
+    {
+      "id": "BA-02",
+      "category": "bias",
+      "question": "Does the AI perform differently for different groups of students, and how do you check?",
+      "why_it_matters": "AI scoring and feedback can be less accurate for some students. Vendors who monitor this can show you how.",
+      "weak_answer": "\"Our model is unbiased,\" with no description of how that was tested or monitored."
+    },
+    {
+      "id": "BA-03",
+      "category": "bias",
+      "question": "How does the AI handle student writing or speech in different dialects, varieties of English, or other languages?",
+      "why_it_matters": "Speech recognition and writing feedback can penalize students for how they speak or write rather than what they know.",
+      "weak_answer": "Testing only on standard academic English, or no answer about multilingual students."
+    },
+    {
+      "id": "BA-04",
+      "category": "bias",
+      "question": "Can you share a current accessibility conformance report (such as a VPAT) showing which accessibility standards the product meets?",
+      "why_it_matters": "Schools are responsible for making digital tools usable by students with disabilities. A recent, specific report shows the vendor has actually checked.",
+      "weak_answer": "\"Fully accessible,\" with no report, or a report several versions old."
+    },
+    {
+      "id": "BA-05",
+      "category": "bias",
+      "question": "Can students who use screen readers, keyboard-only navigation, or other assistive technology use every feature, including the AI features?",
+      "why_it_matters": "New AI features are often added after accessibility testing was done on the rest of the product.",
+      "weak_answer": "The core product was tested, but the AI chat or newer features were not."
+    },
+    {
+      "id": "BA-06",
+      "category": "bias",
+      "question": "What content does the AI refuse or filter, and who decided those rules?",
+      "why_it_matters": "Filters can block legitimate topics in history or health, or let inappropriate content through. You should know the rules before students do.",
+      "weak_answer": "\"We use industry-standard filters,\" with no explanation of what is blocked or allowed."
+    },
+    {
+      "id": "BA-07",
+      "category": "bias",
+      "question": "When the AI makes a judgment about a student, such as a score, flag, or recommendation, can a teacher see why and override it?",
+      "why_it_matters": "Decisions that affect students need a person who can explain them to the student and family, and change them when they're wrong.",
+      "weak_answer": "A score or flag with no explanation, and no way for a teacher to correct it."
+    },
+    {
+      "id": "BA-08",
+      "category": "bias",
+      "question": "When the AI gets something wrong about a student, how is the record corrected?",
+      "why_it_matters": "Wrong information that stays in a student's record can follow them. There should be a clear correction process.",
+      "weak_answer": "No correction process, or corrections that only change what the teacher sees."
+    },
+    {
+      "id": "CE-01",
+      "category": "cost",
+      "question": "What is the full cost over three years, including training, integrations, and expected price increases?",
+      "why_it_matters": "First-year pricing is often discounted. The real decision depends on the full cost over the life of the contract.",
+      "weak_answer": "A first-year price only, or \"introductory pricing\" with no figures for later years."
+    },
+    {
+      "id": "CE-02",
+      "category": "cost",
+      "question": "Which features cost extra now, and could any AI features move to a paid tier later?",
+      "why_it_matters": "AI features often launch free or in pilot and later become paid add-ons after schools depend on them.",
+      "weak_answer": "No written commitment about which features stay included."
+    },
+    {
+      "id": "CE-03",
+      "category": "cost",
+      "question": "How much staff time will this take for training, setup, and ongoing management?",
+      "why_it_matters": "Staff time is a real cost, and it comes out of time teachers and leaders would otherwise spend on students.",
+      "weak_answer": "\"It's intuitive, no training needed,\" with no estimate of setup or support time."
+    },
+    {
+      "id": "CE-04",
+      "category": "cost",
+      "question": "When the contract ends, can we export our data and content in a format we can actually use?",
+      "why_it_matters": "If you can't get your data out, switching tools later means starting over.",
+      "weak_answer": "Export only as PDFs, only on request, or not at all."
+    },
+    {
+      "id": "CE-05",
+      "category": "cost",
+      "question": "How much notice do you give before raising prices or removing features, and can we exit the contract if that happens?",
+      "why_it_matters": "Terms that let the vendor change the product or price at any time leave you with the risk.",
+      "weak_answer": "Terms that allow changes without notice and no way to exit early."
+    },
+    {
+      "id": "CE-06",
+      "category": "cost",
+      "question": "If the pilot is free, what will it cost afterward, and what happens to our data if we don't continue?",
+      "why_it_matters": "Free pilots can build dependence before anyone knows the real price.",
+      "weak_answer": "No pricing until after the pilot, or no plan for data when the pilot ends."
+    },
+    {
+      "id": "CE-07",
+      "category": "cost",
+      "question": "Does the price depend on usage, such as per student or per AI request, and is there a cap?",
+      "why_it_matters": "Usage-based AI pricing can grow quickly and unpredictably as more students and teachers use the tool.",
+      "weak_answer": "Usage-based pricing with no cap or no way to monitor spending."
+    },
+    {
+      "id": "CF-01",
+      "category": "fit",
+      "question": "What will a teacher actually do differently on day one, and how long will it take?",
+      "why_it_matters": "A clear picture of the daily workflow tells you more than a demo of what the product can do.",
+      "weak_answer": "A vision of transformation instead of a concrete description of what a teacher does on Monday."
+    },
+    {
+      "id": "CF-02",
+      "category": "fit",
+      "question": "Which of our current systems does it work with, such as our student information system, learning management system, and rostering?",
+      "why_it_matters": "Tools that don't connect to existing systems create extra work and duplicate data entry.",
+      "weak_answer": "\"Integrations are coming soon,\" or manual imports for everything."
+    },
+    {
+      "id": "CF-03",
+      "category": "fit",
+      "question": "What does this product replace, and what does it add to teachers' work?",
+      "why_it_matters": "Tools that only add work tend to be abandoned, no matter how good they are.",
+      "weak_answer": "Nothing is replaced; the product is presented as purely additional."
+    },
+    {
+      "id": "CF-04",
+      "category": "fit",
+      "question": "Can we talk to a district like ours that has used it for at least a year, including one that stopped using it?",
+      "why_it_matters": "References chosen by the vendor show the best case. A former customer shows you the risks.",
+      "weak_answer": "Only showcase references, and no willingness to connect you with a district that left."
+    },
+    {
+      "id": "CF-05",
+      "category": "fit",
+      "question": "What should teachers not hand off to the AI, and how does the product make that clear?",
+      "why_it_matters": "Clear limits protect professional judgment and keep teachers responsible for decisions about students.",
+      "weak_answer": "\"It can handle anything a teacher needs,\" with no stated limits."
+    },
+    {
+      "id": "CF-06",
+      "category": "fit",
+      "question": "How does the product support students' thinking rather than doing the work for them?",
+      "why_it_matters": "A tool that produces finished work can skip the learning the assignment was meant to build.",
+      "weak_answer": "An emphasis on speed and polished output, with nothing about what students learn."
+    },
+    {
+      "id": "CF-07",
+      "category": "fit",
+      "question": "How will we know in 90 days whether it's working, and what information will you give us to judge that ourselves?",
+      "why_it_matters": "You should be able to evaluate the tool against your goals, not only the vendor's dashboard.",
+      "weak_answer": "Usage dashboards only, with no connection to learning or your district's goals."
+    },
+    {
+      "id": "CF-08",
+      "category": "fit",
+      "question": "What support is available when something breaks during the school day?",
+      "why_it_matters": "Problems during instruction cost class time. Response time matters.",
+      "weak_answer": "Email-only support with multi-day response times."
     }
   ]
 }
