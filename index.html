@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Questions to Ask an Edtech AI Vendor</title>
+<meta name="description" content="An open question bank for school leaders vetting AI products: evidence of impact, data privacy, and what a weak answer sounds like.">
+<style>
+  :root { --ink:#1d2433; --muted:#5a6375; --line:#d9dee7; --bg:#f7f8fa; --accent:#2f5d8a; --card:#fff; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:var(--bg); }
+  header, main, footer { max-width:820px; margin:0 auto; padding:0 20px; }
+  header { padding-top:40px; }
+  h1 { font-size:1.9rem; line-height:1.2; margin:0 0 8px; }
+  .lede { color:var(--muted); margin:0 0 24px; max-width:640px; }
+  .controls { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin-bottom:24px; display:flex; flex-wrap:wrap; gap:12px 24px; align-items:center; }
+  .controls label { display:flex; gap:8px; align-items:center; cursor:pointer; }
+  .actions { margin-left:auto; display:flex; gap:8px; }
+  button { font:inherit; border:1px solid var(--accent); background:var(--accent); color:#fff; padding:8px 14px; border-radius:8px; cursor:pointer; }
+  button.secondary { background:#fff; color:var(--accent); }
+  button:focus-visible, input:focus-visible { outline:3px solid #9cc1e8; outline-offset:2px; }
+  section.cat { margin-bottom:32px; }
+  section.cat h2 { font-size:1.25rem; margin:0 0 4px; }
+  section.cat > p { color:var(--muted); margin:0 0 12px; }
+  .q { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-bottom:10px; display:grid; grid-template-columns:auto 1fr; gap:4px 12px; }
+  .q input { margin-top:5px; width:18px; height:18px; }
+  .q .text { font-weight:600; }
+  .q .id { color:var(--muted); font-weight:400; font-size:.85rem; margin-right:6px; }
+  .q dl { grid-column:2; margin:6px 0 0; font-size:.93rem; }
+  .q dt { font-weight:600; color:var(--muted); margin-top:6px; }
+  .q dd { margin:2px 0 0; }
+  .hide-notes .q dl { display:none; }
+  .status { color:var(--muted); font-size:.9rem; min-height:1.4em; }
+  footer { color:var(--muted); font-size:.88rem; border-top:1px solid var(--line); padding-top:16px; padding-bottom:40px; margin-top:24px; }
+  footer a { color:var(--accent); }
+  @media print {
+    body { background:#fff; }
+    .controls, footer .no-print { display:none; }
+    .q { break-inside:avoid; border-color:#bbb; }
+    .q:not(.selected) { display:none; }
+    .q input { display:none; }
+    .q { grid-template-columns:1fr; }
+    .q dl { grid-column:1; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Questions to Ask an Edtech AI Vendor</h1>
+  <p class="lede">Choose the questions you need, then copy or print a questionnaire to send before you buy. Each question explains why it matters and what a weak answer sounds like.</p>
+</header>
+<main>
+  <div class="controls" role="group" aria-label="Questionnaire options">
+    <label><input type="checkbox" id="toggle-notes" checked> Show guidance notes</label>
+    <label><input type="checkbox" id="include-notes"> Include notes in the copy</label>
+    <div class="actions">
+      <button type="button" class="secondary" id="select-all">Clear all</button>
+      <button type="button" class="secondary" id="print">Print</button>
+      <button type="button" id="copy">Copy questionnaire</button>
+    </div>
+    <div class="status" id="status" aria-live="polite"></div>
+  </div>
+  <div id="questions"><p>Loading questions…</p></div>
+</main>
+<footer>
+  <p>An open, community-maintained project by Nicholas Rolland. Questions are licensed CC BY 4.0. This is not legal advice; check privacy and contract questions with your district's legal and data privacy staff. No vendors are named or rated here.</p>
+  <p class="no-print"><a href="https://github.com/nicholasrolland/edtech-ai-evidence-questions">Suggest a question or improvement on GitHub</a></p>
+</footer>
+<script>
+(function () {
+  var data = null;
+  var container = document.getElementById('questions');
+  var status = document.getElementById('status');
+
+  function el(tag, attrs, text) {
+    var e = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) { e.setAttribute(k, attrs[k]); });
+    if (text != null) e.textContent = text;
+    return e;
+  }
+
+  function render() {
+    container.innerHTML = '';
+    data.categories.forEach(function (cat) {
+      var qs = data.questions.filter(function (q) { return q.category === cat.id; });
+      if (!qs.length) return;
+      var sec = el('section', { 'class': 'cat', 'aria-labelledby': 'h-' + cat.id });
+      sec.appendChild(el('h2', { id: 'h-' + cat.id }, cat.name));
+      sec.appendChild(el('p', null, cat.intro));
+      qs.forEach(function (q) {
+        var card = el('div', { 'class': 'q selected' });
+        var box = el('input', { type: 'checkbox', id: 'cb-' + q.id, 'data-id': q.id });
+        box.checked = true;
+        box.addEventListener('change', function () { card.classList.toggle('selected', box.checked); });
+        var lab = el('label', { 'for': 'cb-' + q.id, 'class': 'text' });
+        lab.appendChild(el('span', { 'class': 'id' }, q.id));
+        lab.appendChild(document.createTextNode(q.question));
+        var dl = el('dl');
+        dl.appendChild(el('dt', null, 'Why it matters'));
+        dl.appendChild(el('dd', null, q.why_it_matters));
+        dl.appendChild(el('dt', null, 'What a weak answer sounds like'));
+        dl.appendChild(el('dd', null, q.weak_answer));
+        card.appendChild(box); card.appendChild(lab); card.appendChild(dl);
+        sec.appendChild(card);
+      });
+      container.appendChild(sec);
+    });
+  }
+
+  function selected() {
+    var ids = {};
+    container.querySelectorAll('input[type=checkbox]:checked').forEach(function (b) { ids[b.getAttribute('data-id')] = true; });
+    return ids;
+  }
+
+  function buildText() {
+    var ids = selected();
+    var withNotes = document.getElementById('include-notes').checked;
+    var lines = ['Questions for AI product vendors', ''];
+    var n = 0;
+    data.categories.forEach(function (cat) {
+      var qs = data.questions.filter(function (q) { return q.category === cat.id && ids[q.id]; });
+      if (!qs.length) return;
+      lines.push(cat.name.toUpperCase());
+      qs.forEach(function (q) {
+        n += 1;
+        lines.push(n + '. ' + q.question);
+        if (withNotes) {
+          lines.push('   Why it matters: ' + q.why_it_matters);
+          lines.push('   Weak answer: ' + q.weak_answer);
+        }
+      });
+      lines.push('');
+    });
+    return { text: lines.join('\n').trim() + '\n', count: n };
+  }
+
+  function copy() {
+    var out = buildText();
+    if (!out.count) { status.textContent = 'Select at least one question first.'; return; }
+    var done = function () { status.textContent = 'Copied ' + out.count + ' questions.'; };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(out.text).then(done, fallback);
+    } else { fallback(); }
+    function fallback() {
+      var ta = el('textarea'); ta.value = out.text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) { status.textContent = 'Copy failed. Use Print instead.'; }
+      document.body.removeChild(ta);
+    }
+  }
+
+  document.getElementById('toggle-notes').addEventListener('change', function (e) {
+    document.body.classList.toggle('hide-notes', !e.target.checked);
+  });
+  document.getElementById('copy').addEventListener('click', copy);
+  document.getElementById('print').addEventListener('click', function () { window.print(); });
+  document.getElementById('select-all').addEventListener('click', function () {
+    var boxes = container.querySelectorAll('input[type=checkbox]');
+    var allOn = Array.prototype.every.call(boxes, function (b) { return b.checked; });
+    boxes.forEach(function (b) { b.checked = !allOn; b.dispatchEvent(new Event('change')); });
+    this.textContent = allOn ? 'Select all' : 'Clear all';
+  });
+
+  fetch('data/questions.json')
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (json) { data = json; render(); })
+    .catch(function () { container.innerHTML = '<p>Questions could not be loaded. Open this page from a web server, not as a local file.</p>'; });
+})();
+</script>
+</body>
+</html>
