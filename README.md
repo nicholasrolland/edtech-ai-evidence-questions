@@ -21,9 +21,9 @@ Or read the questions directly in [`data/questions.json`](data/questions.json).
 |---|---|
 | Evidence of impact | 10 questions |
 | Data privacy | 7 questions |
-| Bias and accessibility | Planned |
-| Cost and exit terms | Planned |
-| Classroom fit | Planned |
+| Bias and accessibility | 8 questions |
+| Cost and exit terms | 7 questions |
+| Classroom fit | 8 questions |
 
 The privacy section is intentionally short. Strong privacy resources already exist, including the [Student Data Privacy Consortium](https://privacy.a4l.org/). This project focuses most on evidence of impact, where vendor claims are hardest for schools to check.
 
