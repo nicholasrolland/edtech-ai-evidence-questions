@@ -1,0 +1,135 @@
+{
+  "categories": [
+    {
+      "id": "evidence",
+      "name": "Evidence of impact",
+      "intro": "Does the product actually improve learning, and how do they know?"
+    },
+    {
+      "id": "privacy",
+      "name": "Data privacy",
+      "intro": "What happens to student and staff data, during the contract and after it ends?"
+    }
+  ],
+  "questions": [
+    {
+      "id": "EV-01",
+      "category": "evidence",
+      "question": "What specific student outcome did your research measure, and how was it measured?",
+      "why_it_matters": "\"Improves learning\" can mean test scores, engagement, time on the platform, or teacher satisfaction. Only some of those are learning.",
+      "weak_answer": "Usage numbers, engagement rates, or satisfaction surveys presented as if they were learning gains."
+    },
+    {
+      "id": "EV-02",
+      "category": "evidence",
+      "question": "Who funded the research, and who conducted it?",
+      "why_it_matters": "Company-funded studies aren't automatically wrong, but they need more scrutiny, and you deserve to know who paid.",
+      "weak_answer": "\"Independent researchers\" with no names, or a study run entirely by the company's own team without saying so."
+    },
+    {
+      "id": "EV-03",
+      "category": "evidence",
+      "question": "Did the study compare students who used the product with similar students who didn't? How were they chosen?",
+      "why_it_matters": "Without a comparison group, gains could come from normal growth, a new teacher, or anything else that happened that year.",
+      "weak_answer": "Pre/post results with no comparison, or comparisons where schools chose for themselves whether to participate."
+    },
+    {
+      "id": "EV-04",
+      "category": "evidence",
+      "question": "How large was the effect, and for which students?",
+      "why_it_matters": "A result can be statistically significant and still too small to matter, or it may hold only for one group of students.",
+      "weak_answer": "\"Statistically significant\" with no effect size, or results reported only for the highest-using students."
+    },
+    {
+      "id": "EV-05",
+      "category": "evidence",
+      "question": "Which version of the product was studied, and how different is it from what we would buy today?",
+      "why_it_matters": "AI products change quickly, including the models underneath them. Evidence about last year's version may not describe this year's.",
+      "weak_answer": "A study of an older version or a different underlying model, presented as evidence for the current product."
+    },
+    {
+      "id": "EV-06",
+      "category": "evidence",
+      "question": "When you say the product is \"research-based,\" do you mean research on this product, or research on the ideas behind it?",
+      "why_it_matters": "Citing general learning science (like retrieval practice) is not evidence that this particular product works.",
+      "weak_answer": "A list of well-known learning science studies, none of which tested the product itself."
+    },
+    {
+      "id": "EV-07",
+      "category": "evidence",
+      "question": "Has the evidence been reviewed or published outside your company? If you claim an ESSA evidence tier, who determined it?",
+      "why_it_matters": "Vendors often assign their own evidence tier. Outside review and a clear source for the claim make it far more credible.",
+      "weak_answer": "A white paper hosted only on the company website, or an ESSA tier the company assigned to itself."
+    },
+    {
+      "id": "EV-08",
+      "category": "evidence",
+      "question": "What results have you found that were neutral or negative?",
+      "why_it_matters": "Studies that find no effect are often never shared. A vendor who discusses them is giving you a more complete picture.",
+      "weak_answer": "\"None.\" Every product has some setting, group, or measure where it didn't help."
+    },
+    {
+      "id": "EV-09",
+      "category": "evidence",
+      "question": "How much use did students need to see results, and how often did schools actually reach that level?",
+      "why_it_matters": "If results require 90 minutes a week and most schools average 20, the evidence may not apply to how you'd really use it.",
+      "weak_answer": "Results reported only for students who met the recommended usage, with no information on how many did."
+    },
+    {
+      "id": "EV-10",
+      "category": "evidence",
+      "question": "How is the AI's output checked for accuracy before students or teachers rely on it, and what is its known error rate?",
+      "why_it_matters": "AI tools can produce confident, wrong content. You need to know how often that happens and who catches it.",
+      "weak_answer": "\"Our model is highly accurate\" with no error rate, testing process, or description of human review."
+    },
+    {
+      "id": "PR-01",
+      "category": "privacy",
+      "question": "What student and staff data do you collect, and what is each type used for?",
+      "why_it_matters": "You can't judge risk without a specific list. Collecting more than the product needs increases exposure.",
+      "weak_answer": "\"Only what's necessary\" without an actual list of data fields and purposes."
+    },
+    {
+      "id": "PR-02",
+      "category": "privacy",
+      "question": "Is any of our data used to train or improve AI models, yours or a third party's?",
+      "why_it_matters": "Data used for training can be hard or impossible to remove later. This should be an explicit yes or no in the contract.",
+      "weak_answer": "\"De-identified data may be used to improve our services,\" with no detail on what that includes."
+    },
+    {
+      "id": "PR-03",
+      "category": "privacy",
+      "question": "Which outside companies, including AI model providers, receive our data, and under what terms?",
+      "why_it_matters": "Many AI tools send data to another company's model. Your data is only as protected as the weakest company it passes through.",
+      "weak_answer": "\"Trusted partners\" with no names, or no mention of the model provider at all."
+    },
+    {
+      "id": "PR-04",
+      "category": "privacy",
+      "question": "How long do you keep our data, and how is it deleted when the contract ends?",
+      "why_it_matters": "Data kept indefinitely is a long-term risk. You want a timeline and written confirmation of deletion.",
+      "weak_answer": "No retention timeline, or deletion only \"upon request\" with no confirmation."
+    },
+    {
+      "id": "PR-05",
+      "category": "privacy",
+      "question": "Will you sign our state or district student data privacy agreement?",
+      "why_it_matters": "Many states and districts use standard agreements, often through the Student Data Privacy Consortium. Willingness to sign one is a basic signal.",
+      "weak_answer": "Only the company's own terms of service, or a refusal to negotiate any changes."
+    },
+    {
+      "id": "PR-06",
+      "category": "privacy",
+      "question": "How does the product handle students under 13, and what consent does it rely on?",
+      "why_it_matters": "Federal law (COPPA) sets rules for collecting data from children under 13. Ask your district's legal or privacy staff how it applies to you.",
+      "weak_answer": "An assumption that the school has handled consent, with no explanation of what the product collects from young students."
+    },
+    {
+      "id": "PR-07",
+      "category": "privacy",
+      "question": "What happens to our data if your company is acquired, merges, or shuts down?",
+      "why_it_matters": "Edtech companies are bought and closed often. The contract should say what happens to your data when that happens.",
+      "weak_answer": "Not addressed in the contract, or \"we'd handle that at the time.\""
+    }
+  ]
+}
